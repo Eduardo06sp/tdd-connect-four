@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/game_board.rb'
+require_relative '../lib/game_board'
 
 describe GameBoard do
   subject(:new_game) { GameBoard.new }
