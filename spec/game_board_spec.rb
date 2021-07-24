@@ -21,12 +21,9 @@ describe GameBoard do
   end
 
   describe '#validate_input' do
-    before do
+    it 'returns input if valid' do
       valid_input = 'c'
       valid_entries = %w[a b c d]
-    end
-
-    it 'returns input if valid' do
       verified_input = new_game.validate_input(valid_input, valid_entries)
       expect(verified_input).to be('c')
     end
