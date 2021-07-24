@@ -13,5 +13,7 @@ describe GameBoard do
   end
 
   describe '#create_player' do
+    it 'creates a new Player instance with given arguments' do
+    end
   end
 end
