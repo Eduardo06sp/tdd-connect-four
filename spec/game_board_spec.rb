@@ -19,4 +19,7 @@ describe GameBoard do
       new_game.create_player('Sam', 'white_token')
     end
   end
+
+  describe '#validate_input' do
+  end
 end
