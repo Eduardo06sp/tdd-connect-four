@@ -14,6 +14,7 @@ describe GameBoard do
 
   describe '#create_player' do
     it 'creates a new Player instance with given arguments' do
+      expect(Player).to receive(:new).with('Sam', 'white_token')
     end
   end
 end
