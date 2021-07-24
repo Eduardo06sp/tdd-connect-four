@@ -27,6 +27,8 @@ describe GameBoard do
     end
 
     it 'returns input if valid' do
+      verified_input = new_game.validate_input(valid_input, valid_entries)
+      expect(verified_input).to be('c')
     end
   end
 end
