@@ -21,6 +21,11 @@ describe GameBoard do
   end
 
   describe '#validate_input' do
+    before do
+      valid_input = 'c'
+      valid_entries = %w[a b c d]
+    end
+
     it 'returns input if valid' do
     end
   end
