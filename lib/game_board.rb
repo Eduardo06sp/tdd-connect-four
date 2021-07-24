@@ -9,5 +9,6 @@ class GameBoard
   end
 
   def create_player
+    Player.new('Sam', 'white_token')
   end
 end
