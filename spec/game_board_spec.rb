@@ -11,4 +11,7 @@ describe GameBoard do
       new_game.start_game
     end
   end
+
+  describe '#create_player' do
+  end
 end
