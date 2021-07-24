@@ -21,5 +21,7 @@ describe GameBoard do
   end
 
   describe '#validate_input' do
+    it 'returns input if valid' do
+    end
   end
 end
