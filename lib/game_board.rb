@@ -8,7 +8,7 @@ class GameBoard
     puts 'Welcome to CLI Connect Four! Please press enter to continue...'
   end
 
-  def create_player
-    Player.new('Sam', 'white_token')
+  def create_player(name, symbol)
+    Player.new(name, symbol)
   end
 end
