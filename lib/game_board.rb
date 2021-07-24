@@ -5,5 +5,6 @@ class GameBoard
   end
 
   def start_game
+    puts 'Welcome to CLI Connect Four! Please press any key to continue...'
   end
 end
