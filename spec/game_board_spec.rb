@@ -41,6 +41,8 @@ describe GameBoard do
         valid_input = 'b'
         invalid_input = 2
         invalid_letter = 'z'
+
+        allow(new_game).to receive(:gets).and_return(invalid_input, invalid_letter, valid_input)
       end
 
       it 'returns error message twice' do
