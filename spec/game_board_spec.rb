@@ -35,5 +35,18 @@ describe GameBoard do
       expect(new_game).to receive(:puts).with(error_message).once
       new_game.validate_input(invalid_input, valid_entries)
     end
+
+    context 'when user inputs two invalid inputs, then a valid input' do
+      it 'returns error message twice' do
+        valid_input = 'b'
+        invalid_input = 2
+        invalid_letter = 'z'
+        valid_entries = %w[a b c d]
+
+        error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
+        expect(new_game).to receive(:puts).with(error_message).twice
+        new_game.validate_input(valid_input, valid_entries)
+      end
+    end
   end
 end
