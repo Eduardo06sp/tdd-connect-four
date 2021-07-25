@@ -37,10 +37,13 @@ describe GameBoard do
     end
 
     context 'when user inputs two invalid inputs, then a valid input' do
-      it 'returns error message twice' do
+      before do
         valid_input = 'b'
         invalid_input = 2
         invalid_letter = 'z'
+      end
+
+      it 'returns error message twice' do
         valid_entries = %w[a b c d]
 
         error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
