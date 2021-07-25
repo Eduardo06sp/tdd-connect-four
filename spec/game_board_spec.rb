@@ -28,12 +28,19 @@ describe GameBoard do
       expect(verified_input).to be('c')
     end
 
-    it 'returns error message if input is invalid' do
-      invalid_input = 1
-      valid_entries = %w[a b c d]
-      error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
-      expect(new_game).to receive(:puts).with(error_message).once
-      new_game.validate_input(invalid_input, valid_entries)
+    context 'when user inputs an invalid input, then a valid input' do
+      before do
+        valid_input = 'a'
+        allow(new_game).to receive(:gets).and_return(valid_input)
+      end
+
+      it 'returns error message if input is invalid' do
+        invalid_input = 1
+        valid_entries = %w[a b c d]
+        error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
+        expect(new_game).to receive(:puts).with(error_message).once
+        new_game.validate_input(invalid_input, valid_entries)
+      end
     end
 
     context 'when user inputs two invalid inputs, then a valid input' do
