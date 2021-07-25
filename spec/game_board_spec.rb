@@ -39,18 +39,18 @@ describe GameBoard do
     context 'when user inputs two invalid inputs, then a valid input' do
       before do
         valid_input = 'b'
-        invalid_input = 2
         invalid_letter = 'z'
 
         allow(new_game).to receive(:gets).and_return(invalid_input, invalid_letter, valid_input)
       end
 
       it 'returns error message twice' do
+        invalid_input = 2
         valid_entries = %w[a b c d]
 
         error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
         expect(new_game).to receive(:puts).with(error_message).twice
-        new_game.validate_input(valid_input, valid_entries)
+        new_game.validate_input(invalid_input, valid_entries)
       end
     end
   end
