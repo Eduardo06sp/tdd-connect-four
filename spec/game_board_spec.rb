@@ -61,4 +61,7 @@ describe GameBoard do
       end
     end
   end
+
+  describe '#create_board' do
+  end
 end
