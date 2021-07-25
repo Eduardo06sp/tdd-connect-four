@@ -31,9 +31,9 @@ describe GameBoard do
     it 'returns error message if input is invalid' do
       invalid_input = 1
       valid_entries = %w[a b c d]
-      verified_input = new_game.validate_input(invalid_input, valid_entries)
       error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
-      expect(verified_input).to receive(:puts).with(error_message).once
+      expect(new_game).to receive(:puts).with(error_message).once
+      new_game.validate_input(invalid_input, valid_entries)
     end
   end
 end
