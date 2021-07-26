@@ -68,8 +68,11 @@ describe GameBoard do
     let(:player_one) { instance_double(Player) }
     let(:player_two) { instance_double(Player) }
 
-    it 'creates a new GameBoard instance with given arguments' do
-      expect(GameBoard).to receive(:new).with(player_one, player_two)
+    it 'creates a new GameBoard instance' do
+      allow(new_game).to receive(:puts).exactly(3).times
+      allow(new_game).to receive(:gets).and_return('').twice
+      allow(new_game).to receive(:gets).and_return('black')
+      expect(GameBoard).to receive(:new)
       new_game.create_board
     end
   end
