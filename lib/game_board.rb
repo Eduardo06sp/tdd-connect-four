@@ -22,7 +22,7 @@ class GameBoard
     validate_input(input, valid_entries)
   end
 
-  def create_board
+  def create_new_game
     puts "Please enter a name for player one, or press enter to use the default:"
     input = gets.chomp
     p1_name = input == '' ? 'Player 1' : input
