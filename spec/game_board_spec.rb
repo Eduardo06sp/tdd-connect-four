@@ -4,7 +4,9 @@ require_relative '../lib/game_board'
 require_relative '../lib/player'
 
 describe GameBoard do
-  subject(:new_game) { GameBoard.new }
+  let(:player_one) { instance_double(Player) }
+  let(:player_two) { instance_double(Player) }
+  subject(:new_game) { GameBoard.new(player_one, player_two) }
 
   describe '#start_game' do
     it 'outputs message' do
