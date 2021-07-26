@@ -63,6 +63,9 @@ describe GameBoard do
   end
 
   describe '#create_board' do
+    let(:player_one) { instance_double(Player) }
+    let(:player_two) { instance_double(Player) }
+
     it 'creates a new GameBoard instance with given arguments' do
       expect(GameBoard).to receive(:new).with(player_one, player_two)
       new_game.create_board
