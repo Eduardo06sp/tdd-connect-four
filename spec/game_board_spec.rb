@@ -64,7 +64,7 @@ describe GameBoard do
     end
   end
 
-  describe '#create_board' do
+  describe '#create_new_game' do
     let(:player_one) { instance_double(Player) }
     let(:player_two) { instance_double(Player) }
 
