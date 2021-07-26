@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GameBoard
+class ConnectFour
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
@@ -40,6 +40,6 @@ class GameBoard
     player_one = Player.new(p1_name, p1_token)
     player_two = Player.new(p2_name, p2_token)
 
-    GameBoard.new(player_one, player_two)
+    ConnectFour.new(player_one, player_two)
   end
 end
