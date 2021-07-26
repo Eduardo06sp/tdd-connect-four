@@ -3,10 +3,10 @@
 require_relative '../lib/game_board'
 require_relative '../lib/player'
 
-describe GameBoard do
+describe ConnectFour do
   let(:player_one) { instance_double(Player) }
   let(:player_two) { instance_double(Player) }
-  subject(:new_game) { GameBoard.new(player_one, player_two) }
+  subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
   describe '#start_game' do
     it 'outputs message' do
@@ -68,11 +68,11 @@ describe GameBoard do
     let(:player_one) { instance_double(Player) }
     let(:player_two) { instance_double(Player) }
 
-    it 'creates a new GameBoard instance' do
+    it 'creates a new ConnectFour instance' do
       allow(new_game).to receive(:puts).exactly(3).times
       allow(new_game).to receive(:gets).and_return('').twice
       allow(new_game).to receive(:gets).and_return('black')
-      expect(GameBoard).to receive(:new)
+      expect(ConnectFour).to receive(:new)
       new_game.create_new_game
     end
   end
