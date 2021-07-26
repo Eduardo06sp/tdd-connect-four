@@ -34,5 +34,9 @@ class GameBoard
     validated_input = validate_input(input, %w[black white])
     p1_token = "#{validated_input}_token"
     p2_token = p1_token == 'black_token' ? 'white_token' : 'black_token'
+
+    player_one = Player.new(p1_name, p1_token)
+    player_two = Player.new(p2_name, p2_token)
+    new_game = GameBoard.new(player_one, player_two)
   end
 end
