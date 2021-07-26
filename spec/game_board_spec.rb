@@ -73,7 +73,7 @@ describe GameBoard do
       allow(new_game).to receive(:gets).and_return('').twice
       allow(new_game).to receive(:gets).and_return('black')
       expect(GameBoard).to receive(:new)
-      new_game.create_board
+      new_game.create_new_game
     end
   end
 end
