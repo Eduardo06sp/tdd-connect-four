@@ -17,7 +17,7 @@ class GameBoard
   def validate_input(valid_input, valid_entries)
     return valid_input if valid_entries.include?(valid_input)
 
-    puts "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
+    puts "Invalid input! Please try again."
     input = gets.chomp
     validate_input(input, valid_entries)
   end
