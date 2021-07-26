@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class GameBoard
-  def initialize
+  def initialize(player_one, player_two)
+    @player_one = player_one
+    @player_two = player_two
   end
 
   def start_game
