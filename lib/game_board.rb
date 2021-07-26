@@ -28,5 +28,11 @@ class GameBoard
     puts "Please enter a name for player one, or press enter to use the default:"
     input = gets.chomp
     p2_name = input == '' ? 'Player 2' : input
+
+    puts "#{p1_name}, please choose the color of your gamepiece: black or white"
+    input = gets.chomp
+    validated_input = validate_input(input, %w[black white])
+    p1_token = "#{validated_input}_token"
+    p2_token = p1_token == 'black_token' ? 'white_token' : 'black_token'
   end
 end
