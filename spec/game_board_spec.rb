@@ -39,7 +39,7 @@ describe GameBoard do
       it 'returns error message if input is invalid' do
         invalid_input = 1
         valid_entries = %w[a b c d]
-        error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
+        error_message = "Invalid input! Please try again."
         expect(new_game).to receive(:puts).with(error_message).once
         new_game.validate_input(invalid_input, valid_entries)
       end
@@ -57,7 +57,7 @@ describe GameBoard do
         invalid_input = 2
         valid_entries = %w[a b c d]
 
-        error_message = "Invalid input! Please enter one of the following: #{valid_entries.join(' ')}"
+        error_message = "Invalid input! Please try again."
         expect(new_game).to receive(:puts).with(error_message).twice
         new_game.validate_input(invalid_input, valid_entries)
       end
