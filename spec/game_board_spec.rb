@@ -42,5 +42,14 @@ describe GameBoard do
   end
 
   describe '#update_board' do
+    context 'when player selects available space C1' do
+      it 'updates C1 with gamepiece' do
+        spot = 'C1'
+        piece = 'white_token'
+        board = new_board.instance_variable_get(:@board)
+        expect(board['C1']).to eq('white_token')
+        new_board.update_board(spot, piece)
+      end
+    end
   end
 end
