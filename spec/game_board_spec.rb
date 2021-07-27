@@ -13,7 +13,7 @@ describe GameBoard do
 
     it 'contains key A1' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?(:A1)).to be(true)
+      expect(board.key?('A1')).to be(true)
     end
   end
 end
