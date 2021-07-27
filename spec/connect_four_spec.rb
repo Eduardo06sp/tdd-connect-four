@@ -76,4 +76,7 @@ describe ConnectFour do
       new_game.create_new_game
     end
   end
+
+  describe '#change_turn' do
+  end
 end
