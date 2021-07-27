@@ -8,9 +8,11 @@ describe ConnectFour do
   let(:player_two) { instance_double(Player) }
   subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
-  before do
-    allow(player_one).to receive(:name)
-    allow(player_two).to receive(:name)
+  before do |exception|
+    unless exception.metadata[:skip_before]
+      allow(player_one).to receive(:name)
+      allow(player_two).to receive(:name)
+    end
   end
 
   describe '#start_game' do
@@ -82,7 +84,7 @@ describe ConnectFour do
     end
   end
 
-  describe '#change_turn' do
+  describe '#change_turn', :skip_before do
     let(:player_one) { Player.new('Player 1', 'black_token') }
     let(:player_two) { Player.new('Player 2', 'white_token') }
     subject(:new_game) { ConnectFour.new(player_one, player_two) }
