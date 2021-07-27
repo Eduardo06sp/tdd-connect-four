@@ -52,4 +52,7 @@ describe GameBoard do
       end
     end
   end
+
+  describe '#change_turn' do
+  end
 end
