@@ -20,5 +20,10 @@ describe GameBoard do
       board = new_board.instance_variable_get(:@board)
       expect(board.key?('G6')).to be(true)
     end
+
+    it 'does not contain key D7' do
+      board = new_board.instance_variable_get(:@board)
+      expect(board.key?('D7')).to be(false)
+    end
   end
 end
