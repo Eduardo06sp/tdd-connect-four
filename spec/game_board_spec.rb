@@ -40,4 +40,7 @@ describe GameBoard do
       expect(possibilities.include?('A1')).to be(true)
     end
   end
+
+  describe '#update_board' do
+  end
 end
