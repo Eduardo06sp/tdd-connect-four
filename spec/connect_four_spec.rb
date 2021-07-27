@@ -8,6 +8,11 @@ describe ConnectFour do
   let(:player_two) { instance_double(Player) }
   subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
+  before do
+    allow(player_one).to receive(:name)
+    allow(player_two).to receive(:name)
+  end
+
   describe '#start_game' do
     it 'outputs message' do
       expect(new_game).to receive(:puts).once
