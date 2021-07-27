@@ -78,10 +78,12 @@ describe ConnectFour do
   end
 
   describe '#change_turn' do
+    let(:player_one) { Player.new('Player 1', 'black_token') }
+    let(:player_two) { Player.new('Player 2', 'white_token') }
+    subject(:new_game) { ConnectFour.new(player_one, player_two) }
+
     it 'should set @turn to other player' do
-      turn = new_game.instance_variable_get(:@turn)
-      new_game.change_turn
-      expect(turn).to eq('Player 2')
+      expect { new_game.change_turn }.to change { new_game.instance_variable_get(:@turn) }.to('Player 2')
     end
   end
 end
