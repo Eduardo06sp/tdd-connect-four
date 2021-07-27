@@ -22,4 +22,8 @@ class GameBoard
 
     board
   end
+
+  def update_board(location, gamepiece)
+    board[location] = gamepiece
+  end
 end
