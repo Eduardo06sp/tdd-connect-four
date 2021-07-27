@@ -43,4 +43,7 @@ class ConnectFour
 
     ConnectFour.new(player_one, player_two)
   end
+
+  def change_turn
+  end
 end
