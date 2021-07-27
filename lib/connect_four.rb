@@ -45,5 +45,10 @@ class ConnectFour
   end
 
   def change_turn
+    self.turn = if turn == player_one.name
+                  player_two.name
+                else
+                  player_one.name
+                end
   end
 end
