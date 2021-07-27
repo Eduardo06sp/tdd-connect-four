@@ -30,5 +30,9 @@ describe GameBoard do
   end
 
   describe '@possibilities' do
+    it 'is an array with 42 elements' do
+      possibilities = new_board.instance_variable_get(:@possibilities)
+      expect(possibilities.count).to be(42)
+    end
   end
 end
