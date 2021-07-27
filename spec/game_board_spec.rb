@@ -3,4 +3,6 @@
 require_relative '../lib/game_board'
 
 describe GameBoard do
+  describe '#create_board' do
+  end
 end
