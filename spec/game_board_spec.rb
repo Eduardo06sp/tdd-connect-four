@@ -3,6 +3,8 @@
 require_relative '../lib/game_board'
 
 describe GameBoard do
+  subject(:new_board) { GameBoard.new }
+
   describe '#create_board' do
     it 'returns a hash with 42 keys' do
       board_keys = new_board.create_board.keys
