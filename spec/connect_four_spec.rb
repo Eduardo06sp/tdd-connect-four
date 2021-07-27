@@ -78,5 +78,10 @@ describe ConnectFour do
   end
 
   describe '#change_turn' do
+    it 'should set @turn to other player' do
+      turn = new_game.instance_variable_get(:@turn)
+      new_game.change_turn
+      expect(turn).to eq('Player 2')
+    end
   end
 end
