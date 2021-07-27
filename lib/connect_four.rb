@@ -4,6 +4,7 @@ class ConnectFour
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
+    @turn = player_one.name
   end
 
   def start_game
