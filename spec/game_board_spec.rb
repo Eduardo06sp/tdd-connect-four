@@ -47,8 +47,8 @@ describe GameBoard do
         spot = 'C1'
         piece = 'white_token'
         board = new_board.instance_variable_get(:@board)
-        expect(board['C1']).to eq('white_token')
         new_board.update_board(spot, piece)
+        expect(board['C1']).to eq('white_token')
       end
     end
   end
