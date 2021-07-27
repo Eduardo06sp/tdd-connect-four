@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GameBoard
+  attr_reader :board
+
   def initialize
     @board = create_board
     @possibilities = board.keys.map(&:to_s)
