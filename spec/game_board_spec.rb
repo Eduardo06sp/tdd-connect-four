@@ -10,7 +10,9 @@ describe GameBoard do
       board_keys = new_board.create_board.keys
       expect(board_keys.count).to eq(42)
     end
+  end
 
+  describe '@board' do
     it 'contains key A1' do
       board = new_board.instance_variable_get(:@board)
       expect(board.key?('A1')).to be(true)
