@@ -28,4 +28,7 @@ describe GameBoard do
       expect(board.key?('D7')).to be(false)
     end
   end
+
+  describe '@possibilities' do
+  end
 end
