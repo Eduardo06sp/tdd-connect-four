@@ -3,6 +3,7 @@
 class GameBoard
   def initialize
     @board = create_board
+    @possibilities = board.keys.map(&:to_s)
   end
 
   def create_board
