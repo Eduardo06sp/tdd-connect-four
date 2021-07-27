@@ -34,5 +34,10 @@ describe GameBoard do
       possibilities = new_board.instance_variable_get(:@possibilities)
       expect(possibilities.count).to be(42)
     end
+
+    it 'contains string A1' do
+      possibilities = new_board.instance_variable_get(:@possibilities)
+      expect(possibilities.include?('A1')).to be(true)
+    end
   end
 end
