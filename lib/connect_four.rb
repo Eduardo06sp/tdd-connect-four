@@ -54,4 +54,7 @@ class ConnectFour
                   player_one.name
                 end
   end
+
+  def game_over?
+  end
 end
