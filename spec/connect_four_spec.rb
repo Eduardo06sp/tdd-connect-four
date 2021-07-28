@@ -93,4 +93,15 @@ describe ConnectFour do
       expect { new_game.change_turn }.to change { new_game.instance_variable_get(:@turn) }.to('Player 2')
     end
   end
+
+  describe '#game_over?' do
+    it 'should return true if horizontal win present' do
+      new_game.update_board('A1', '⚪')
+      new_game.update_board('B1', '⚪')
+      new_game.update_board('C1', '⚪')
+      new_game.update_board('D1', '⚪')
+
+      expect(new_game.game_over?).to be(true)
+    end
+  end
 end
