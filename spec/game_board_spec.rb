@@ -52,4 +52,7 @@ describe GameBoard do
       end
     end
   end
+
+  describe '#game_over?' do
+  end
 end
