@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'game_board'
+
 class ConnectFour
   attr_accessor :turn
   attr_reader :player_one, :player_two
@@ -7,6 +9,7 @@ class ConnectFour
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
+    @board = GameBoard.new
     @turn = player_one.name
   end
 
