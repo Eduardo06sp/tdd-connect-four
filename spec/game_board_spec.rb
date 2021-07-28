@@ -45,10 +45,10 @@ describe GameBoard do
     context 'when player selects available space C1' do
       it 'updates C1 with gamepiece' do
         spot = 'C1'
-        piece = 'white_token'
+        piece = '⚪'
         board = new_board.instance_variable_get(:@board)
         new_board.update_board(spot, piece)
-        expect(board['C1']).to eq('white_token')
+        expect(board['C1']).to eq('⚪')
       end
     end
   end
