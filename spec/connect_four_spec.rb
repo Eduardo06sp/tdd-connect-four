@@ -161,5 +161,10 @@ describe ConnectFour do
       allow(new_game).to receive(:winner?).and_return(false)
       expect(new_game.game_over?).to be(false)
     end
+
+    it 'should return true if there are no possible moves left' do
+      new_game.instance_variable_set(:@possible_moves, [])
+      expect(new_game.game_over?).to be(true)
+    end
   end
 end
