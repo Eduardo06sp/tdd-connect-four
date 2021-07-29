@@ -24,17 +24,17 @@ class ConnectFour
   def validate_input(valid_input, valid_entries)
     return valid_input if valid_entries.include?(valid_input)
 
-    puts "Invalid input! Please try again."
+    puts 'Invalid input! Please try again.'
     input = gets.chomp
     validate_input(input, valid_entries)
   end
 
   def create_new_game
-    puts "Please enter a name for player one, or press enter to use the default:"
+    puts 'Please enter a name for player one, or press enter to use the default:'
     input = gets.chomp
     p1_name = input == '' ? 'Player 1' : input
 
-    puts "Please enter a name for player one, or press enter to use the default:"
+    puts 'Please enter a name for player one, or press enter to use the default:'
     input = gets.chomp
     p2_name = input == '' ? 'Player 2' : input
 
