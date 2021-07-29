@@ -59,5 +59,37 @@ class ConnectFour
   end
 
   def game_over?
+    x_letters = %w[A B C D E F G]
+    visited = []
+
+    game_board.board.each do |k, v|
+      next if v == ' ' || visited.include?(k)
+
+      letter_index = x_letters.index(k[0])
+
+      possible_wins = [v]
+      # search_right
+      right_pieces = [
+        [letter_index + 1],
+        [letter_index + 2],
+        [letter_index + 3]
+      ]
+
+      right_pieces.each do |x|
+        break if x_letters[x[0]].nil?
+
+        possible_wins.push(game_board.board["#{x_letters[x[0]]}#{k[1]}"])
+      end
+
+      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
+
+      # search_top_left
+      # search_top
+      # search_top_right
+
+      visited.push(k)
+    end
+
+    false
   end
 end
