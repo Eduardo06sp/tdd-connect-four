@@ -127,5 +127,16 @@ describe ConnectFour do
 
       expect(new_game.game_over?).to be(true)
     end
+
+    it 'should return true if forwards diagonal win present' do
+      board = new_game.instance_variable_get(:@game_board)
+
+      board.update_board('A1', '⚪')
+      board.update_board('B2', '⚪')
+      board.update_board('C3', '⚪')
+      board.update_board('D4', '⚪')
+
+      expect(new_game.game_over?).to be(true)
+    end
   end
 end
