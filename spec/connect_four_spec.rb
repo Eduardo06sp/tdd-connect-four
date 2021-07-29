@@ -116,5 +116,16 @@ describe ConnectFour do
 
       expect(new_game.game_over?).to be(true)
     end
+
+    it 'should return true if vertical win present' do
+      board = new_game.instance_variable_get(:@game_board)
+
+      board.update_board('A1', '⚪')
+      board.update_board('A2', '⚪')
+      board.update_board('A3', '⚪')
+      board.update_board('A4', '⚪')
+
+      expect(new_game.game_over?).to be(true)
+    end
   end
 end
