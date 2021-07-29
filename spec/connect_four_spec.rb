@@ -152,7 +152,7 @@ describe ConnectFour do
   end
 
   describe '#game_over?' do
-    it 'should return if #winner? is true' do
+    it 'should return true if #winner? is true' do
       allow(new_game).to receive(:winner?).and_return(true)
       expect(new_game.game_over?).to be(true)
     end
