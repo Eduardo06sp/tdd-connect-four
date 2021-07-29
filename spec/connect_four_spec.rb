@@ -150,4 +150,7 @@ describe ConnectFour do
       expect(new_game.winner?).to be(false)
     end
   end
+
+  describe '#game_over?' do
+  end
 end
