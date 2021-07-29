@@ -93,55 +93,19 @@ class ConnectFour
         ]
       }
 
-      possible_wins = [v]
-      # search_right
+      win_combinations.each do |_name, pieces_array|
+        possible_wins = [v]
 
-      right_pieces.each do |x|
-        break if x_letters[x[0]].nil?
+        pieces_array.each do |coordinate|
+          break if x_letters[coordinate[0]].nil?
 
-        possible_wins.push(game_board.board["#{x_letters[x[0]]}#{k[1]}"])
+          current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
+          possible_wins.push(current_spot)
+          visited.push(current_spot)
+        end
+
+        return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
       end
-
-      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
-
-      # search_top_left
-      possible_wins = [v]
-
-      backwards_diagonal_pieces.each do |coordinate|
-        break if x_letters[coordinate[0]].nil?
-
-        current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
-        possible_wins.push(current_spot)
-        visited.push(current_spot)
-      end
-
-      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
-
-      # search_top
-      possible_wins = [v]
-
-      vertical_pieces.each do |coordinate|
-        break if x_letters[coordinate[0]].nil?
-
-        current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
-        possible_wins.push(current_spot)
-        visited.push(current_spot)
-      end
-
-      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
-
-      # search_top_right
-      possible_wins = [v]
-
-      forwards_diagonal_pieces.each do |coordinate|
-        break if x_letters[coordinate[0]].nil?
-
-        current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
-        possible_wins.push(current_spot)
-        visited.push(current_spot)
-      end
-
-      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
 
       visited.push(k)
     end
