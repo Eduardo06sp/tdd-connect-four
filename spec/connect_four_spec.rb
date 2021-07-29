@@ -156,5 +156,10 @@ describe ConnectFour do
       allow(new_game).to receive(:winner?).and_return(true)
       expect(new_game.game_over?).to be(true)
     end
+
+    it 'should return false if #winner? is false' do
+      allow(new_game).to receive(:winner?).and_return(false)
+      expect(new_game.game_over?).to be(false)
+    end
   end
 end
