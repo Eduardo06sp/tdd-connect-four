@@ -115,6 +115,7 @@ class ConnectFour
   end
 
   def game_over?
+    return true if possible_moves.empty?
     return true if winner?
 
     false
