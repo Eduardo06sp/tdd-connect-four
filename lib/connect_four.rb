@@ -58,7 +58,7 @@ class ConnectFour
                 end
   end
 
-  def game_over?
+  def winner?
     x_letters = %w[A B C D E F G]
     visited = []
 

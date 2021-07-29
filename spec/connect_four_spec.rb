@@ -94,7 +94,7 @@ describe ConnectFour do
     end
   end
 
-  describe '#game_over?' do
+  describe '#winner?' do
     it 'should return true if horizontal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
@@ -103,7 +103,7 @@ describe ConnectFour do
       board.update_board('C1', '⚪')
       board.update_board('D1', '⚪')
 
-      expect(new_game.game_over?).to be(true)
+      expect(new_game.winner?).to be(true)
     end
 
     it 'should return true if backwards diagonal win present' do
@@ -114,7 +114,7 @@ describe ConnectFour do
       board.update_board('C2', '⚪')
       board.update_board('D1', '⚪')
 
-      expect(new_game.game_over?).to be(true)
+      expect(new_game.winner?).to be(true)
     end
 
     it 'should return true if vertical win present' do
@@ -125,7 +125,7 @@ describe ConnectFour do
       board.update_board('A3', '⚪')
       board.update_board('A4', '⚪')
 
-      expect(new_game.game_over?).to be(true)
+      expect(new_game.winner?).to be(true)
     end
 
     it 'should return true if forwards diagonal win present' do
@@ -136,7 +136,7 @@ describe ConnectFour do
       board.update_board('C3', '⚪')
       board.update_board('D4', '⚪')
 
-      expect(new_game.game_over?).to be(true)
+      expect(new_game.winner?).to be(true)
     end
   end
 end
