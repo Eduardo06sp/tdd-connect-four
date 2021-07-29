@@ -102,6 +102,23 @@ class ConnectFour
       return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
 
       # search_top
+      possible_wins = [v]
+      vertical_pieces = [
+        [letter_index, k[1].to_i + 1],
+        [letter_index, k[1].to_i + 2],
+        [letter_index, k[1].to_i + 3]
+      ]
+
+      vertical_pieces.each do |coordinate|
+        break if x_letters[coordinate[0]].nil?
+
+        current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
+        possible_wins.push(current_spot)
+        visited.push(current_spot)
+      end
+
+      return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
+
       # search_top_right
 
       visited.push(k)
