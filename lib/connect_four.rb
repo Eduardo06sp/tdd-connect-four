@@ -112,4 +112,8 @@ class ConnectFour
 
     false
   end
+
+  def game_over?
+    return true if winner?
+  end
 end
