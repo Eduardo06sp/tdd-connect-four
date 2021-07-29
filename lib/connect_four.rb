@@ -67,13 +67,34 @@ class ConnectFour
 
       letter_index = x_letters.index(k[0])
 
+      win_combinations = {
+        'right_pieces': [
+          [letter_index + 1, k[1]],
+          [letter_index + 2, k[1]],
+          [letter_index + 3, k[1]]
+        ],
+
+        'backwards_diagonal_pieces': [
+          [letter_index - 1, k[1].to_i + 1],
+          [letter_index - 2, k[1].to_i + 2],
+          [letter_index - 3, k[1].to_i + 3]
+        ],
+
+        'vertical_pieces': [
+          [letter_index, k[1].to_i + 1],
+          [letter_index, k[1].to_i + 2],
+          [letter_index, k[1].to_i + 3]
+        ],
+
+        'forwards_diagonal_pieces': [
+          [letter_index + 1, k[1].to_i + 1],
+          [letter_index + 2, k[1].to_i + 2],
+          [letter_index + 3, k[1].to_i + 3]
+        ]
+      }
+
       possible_wins = [v]
       # search_right
-      right_pieces = [
-        [letter_index + 1],
-        [letter_index + 2],
-        [letter_index + 3]
-      ]
 
       right_pieces.each do |x|
         break if x_letters[x[0]].nil?
@@ -85,11 +106,6 @@ class ConnectFour
 
       # search_top_left
       possible_wins = [v]
-      backwards_diagonal_pieces = [
-        [letter_index - 1, k[1].to_i + 1],
-        [letter_index - 2, k[1].to_i + 2],
-        [letter_index - 3, k[1].to_i + 3]
-      ]
 
       backwards_diagonal_pieces.each do |coordinate|
         break if x_letters[coordinate[0]].nil?
@@ -103,11 +119,6 @@ class ConnectFour
 
       # search_top
       possible_wins = [v]
-      vertical_pieces = [
-        [letter_index, k[1].to_i + 1],
-        [letter_index, k[1].to_i + 2],
-        [letter_index, k[1].to_i + 3]
-      ]
 
       vertical_pieces.each do |coordinate|
         break if x_letters[coordinate[0]].nil?
@@ -121,11 +132,6 @@ class ConnectFour
 
       # search_top_right
       possible_wins = [v]
-      forwards_diagonal_pieces = [
-        [letter_index + 1, k[1].to_i + 1],
-        [letter_index + 2, k[1].to_i + 2],
-        [letter_index + 3, k[1].to_i + 3]
-      ]
 
       forwards_diagonal_pieces.each do |coordinate|
         break if x_letters[coordinate[0]].nil?
