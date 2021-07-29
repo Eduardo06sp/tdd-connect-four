@@ -3,7 +3,7 @@
 require_relative 'game_board'
 
 class ConnectFour
-  attr_accessor :turn
+  attr_accessor :possible_moves, :turn
   attr_reader :game_board, :player_one, :player_two
 
   def initialize(player_one, player_two)
