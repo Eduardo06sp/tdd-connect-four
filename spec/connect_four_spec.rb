@@ -96,7 +96,7 @@ describe ConnectFour do
 
   describe '#game_over?' do
     it 'should return true if horizontal win present' do
-      board = new_game.instance_variable_get(:@board)
+      board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A1', '⚪')
       board.update_board('B1', '⚪')
