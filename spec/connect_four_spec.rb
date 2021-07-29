@@ -166,5 +166,9 @@ describe ConnectFour do
       new_game.instance_variable_set(:@possible_moves, [])
       expect(new_game.game_over?).to be(true)
     end
+
+    it 'should return false if board is empty' do
+      expect(new_game.game_over?).to be(false)
+    end
   end
 end
