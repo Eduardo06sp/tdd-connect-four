@@ -182,7 +182,7 @@ describe ConnectFour do
       last_move = 'A1'
 
       new_game.update_possible_moves(last_move)
-      expect(possible_moves).to be(%w[A2 B1 C1 D1 E1 F1 G1])
+      expect(possible_moves).to eq(%w[A2 B1 C1 D1 E1 F1 G1])
     end
   end
 end
