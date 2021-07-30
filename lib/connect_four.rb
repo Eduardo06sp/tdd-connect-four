@@ -133,4 +133,7 @@ class ConnectFour
 
     false
   end
+
+  def end_game
+  end
 end
