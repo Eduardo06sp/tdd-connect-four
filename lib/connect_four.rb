@@ -52,6 +52,9 @@ class ConnectFour
     ConnectFour.new(player_one, player_two)
   end
 
+  def play_rounds
+  end
+
   def change_turn
     self.turn = if turn == player_one.name
                   player_two.name
