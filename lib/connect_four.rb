@@ -59,6 +59,9 @@ class ConnectFour
                 end
   end
 
+  def update_possible_moves(last_move)
+  end
+
   def winner?
     x_letters = %w[A B C D E F G]
     visited = []
