@@ -192,5 +192,14 @@ describe ConnectFour do
       new_game.update_possible_moves(last_move)
       expect(possible_moves).to eq(%w[A1 B1 C1 D1 E1 F1 G4])
     end
+
+    it 'removes element if last move is G7' do
+      new_game.instance_variable_set(:@possible_moves, %w[A1 B1 C1 D1 E1 F1 G7])
+      possible_moves = new_game.instance_variable_get(:@possible_moves)
+      last_move = 'G7'
+
+      new_game.update_possible_moves(last_move)
+      expect(possible_moves).to eq(%w[A1 B1 C1 D1 E1 F1])
+    end
   end
 end
