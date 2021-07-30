@@ -209,6 +209,12 @@ describe ConnectFour do
     subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
     it 'congratulates player one if player one wins' do
+      new_game.instance_variable_set(:@winner, player_one.name)
+      winner = new_game.instance_variable_get(:@winner)
+      win_message = "Congratulations, #{winner}, you win!"
+
+      expect(new_game).to receive(:puts).with(win_message)
+      new_game.end_game
     end
   end
 end
