@@ -202,4 +202,7 @@ describe ConnectFour do
       expect(possible_moves).to eq(%w[A1 B1 C1 D1 E1 F1])
     end
   end
+
+  describe '#end_game' do
+  end
 end
