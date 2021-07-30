@@ -136,5 +136,8 @@ class ConnectFour
   end
 
   def end_game
+    if winner?
+      puts "Congratulations, #{winner}, you win!"
+    end
   end
 end
