@@ -30,5 +30,7 @@ module TerminalInterface
   end
 
   def display_game
+    display_title
+    display_board
   end
 end
