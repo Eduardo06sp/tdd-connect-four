@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require_relative 'game_board'
+require_relative 'terminal_interface'
 
 class ConnectFour
+  include TerminalInterface
+
   attr_accessor :possible_moves, :winner, :turn
   attr_reader :game_board, :player_one, :player_two
 
