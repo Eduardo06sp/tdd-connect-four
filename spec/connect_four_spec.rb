@@ -213,6 +213,7 @@ describe ConnectFour do
       winner = new_game.instance_variable_get(:@winner)
       win_message = "Congratulations, #{winner}, you win!"
 
+      allow(new_game).to receive(:winner?).and_return(true)
       expect(new_game).to receive(:puts).with(win_message)
       new_game.end_game
     end
