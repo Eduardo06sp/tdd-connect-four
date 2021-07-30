@@ -171,4 +171,7 @@ describe ConnectFour do
       expect(new_game.game_over?).to be(false)
     end
   end
+
+  describe '#make_next_move' do
+  end
 end
