@@ -227,5 +227,13 @@ describe ConnectFour do
       expect(new_game).to receive(:puts).with(win_message)
       new_game.end_game
     end
+
+    it 'displays tie message if neither player wins' do
+      tie_message = 'Game over! Game ends in a tie.'
+
+      allow(new_game).to receive(:winner?).and_return(false)
+      expect(new_game).to receive(:puts).with(tie_message)
+      new_game.end_game
+    end
   end
 end
