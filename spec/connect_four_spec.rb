@@ -183,5 +183,14 @@ describe ConnectFour do
       new_game.update_possible_moves(last_move)
       expect(possible_moves).to eq(%w[A2 B1 C1 D1 E1 F1 G1])
     end
+
+    it 'updates G3 to G4 when last move is G3' do
+      new_game.instance_variable_set(:@possible_moves, %w[A1 B1 C1 D1 E1 F1 G3])
+      possible_moves = new_game.instance_variable_get(:@possible_moves)
+      last_move = 'G3'
+
+      new_game.update_possible_moves(last_move)
+      expect(possible_moves).to eq(%w[A1 B1 C1 D1 E1 F1 G4])
+    end
   end
 end
