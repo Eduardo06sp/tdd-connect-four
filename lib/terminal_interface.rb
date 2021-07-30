@@ -9,6 +9,9 @@ module TerminalInterface
     HEREDOC
   end
 
+  def display_board
+  end
+
   def display_game
   end
 end
