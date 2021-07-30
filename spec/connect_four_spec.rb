@@ -89,13 +89,13 @@ describe ConnectFour do
     let(:player_two) { Player.new('Player 2', 'white_token') }
     subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
-    it 'should set @turn to other player' do
+    it 'sets @turn to other player' do
       expect { new_game.change_turn }.to change { new_game.instance_variable_get(:@turn) }.to('Player 2')
     end
   end
 
   describe '#winner?' do
-    it 'should return true if horizontal win present' do
+    it 'returns true if horizontal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A1', '⚪')
@@ -106,7 +106,7 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    it 'should return true if backwards diagonal win present' do
+    it 'returns true if backwards diagonal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A4', '⚪')
@@ -117,7 +117,7 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    it 'should return true if vertical win present' do
+    it 'returns true if vertical win present' do
       board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A1', '⚪')
@@ -128,7 +128,7 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    it 'should return true if forwards diagonal win present' do
+    it 'returns true if forwards diagonal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A1', '⚪')
@@ -139,7 +139,7 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    it 'should return false if no win is present' do
+    it 'returns false if no win is present' do
       board = new_game.instance_variable_get(:@game_board)
 
       board.update_board('A1', '⚪')
@@ -152,22 +152,22 @@ describe ConnectFour do
   end
 
   describe '#game_over?' do
-    it 'should return true if #winner? is true' do
+    it 'returns true if #winner? is true' do
       allow(new_game).to receive(:winner?).and_return(true)
       expect(new_game.game_over?).to be(true)
     end
 
-    it 'should return false if #winner? is false' do
+    it 'returns false if #winner? is false' do
       allow(new_game).to receive(:winner?).and_return(false)
       expect(new_game.game_over?).to be(false)
     end
 
-    it 'should return true if there are no possible moves left' do
+    it 'returns true if there are no possible moves left' do
       new_game.instance_variable_set(:@possible_moves, [])
       expect(new_game.game_over?).to be(true)
     end
 
-    it 'should return false if board is empty' do
+    it 'returns false if board is empty' do
       expect(new_game.game_over?).to be(false)
     end
   end
