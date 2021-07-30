@@ -62,9 +62,14 @@ class ConnectFour
   def update_possible_moves(last_move)
     last_move_location = possible_moves.index(last_move)
     updated_y = last_move[1].to_i + 1
-    new_possible_move = "#{last_move[0]}#{updated_y}"
 
-    possible_moves[last_move_location] = new_possible_move
+    if updated_y > 7
+      possible_moves.delete_at(last_move_location)
+    else
+      new_possible_move = "#{last_move[0]}#{updated_y}"
+
+      possible_moves[last_move_location] = new_possible_move
+    end
   end
 
   def winner?
