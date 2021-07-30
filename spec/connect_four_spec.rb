@@ -174,4 +174,7 @@ describe ConnectFour do
 
   describe '#make_next_move' do
   end
+
+  describe '#update_possible_moves' do
+  end
 end
