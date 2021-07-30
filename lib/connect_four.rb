@@ -53,6 +53,7 @@ class ConnectFour
   end
 
   def play_rounds
+    display_game
   end
 
   def change_turn
