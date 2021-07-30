@@ -177,7 +177,6 @@ describe ConnectFour do
 
   describe '#update_possible_moves' do
     it 'updates A1 to A2 when gamepiece fills A1' do
-      board = new_game.instance_variable_get(:@game_board)
       possible_moves = new_game.instance_variable_get(:@possible_moves)
       last_move = 'A1'
 
