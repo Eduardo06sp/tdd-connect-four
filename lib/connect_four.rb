@@ -3,7 +3,7 @@
 require_relative 'game_board'
 
 class ConnectFour
-  attr_accessor :possible_moves, :turn
+  attr_accessor :possible_moves, :winner, :turn
   attr_reader :game_board, :player_one, :player_two
 
   def initialize(player_one, player_two)
@@ -11,6 +11,7 @@ class ConnectFour
     @player_one = player_one
     @player_two = player_two
     @game_board = GameBoard.new
+    @winner = nil
     @turn = player_one.name
   end
 
