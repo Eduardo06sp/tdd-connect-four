@@ -181,7 +181,7 @@ describe ConnectFour do
       possible_moves = new_game.instance_variable_get(:@possible_moves)
       last_move = 'A1'
 
-      board.update_possible_moves(last_move)
+      new_game.update_possible_moves(last_move)
       expect(possible_moves).to be(%w[A2 B1 C1 D1 E1 F1 G1])
     end
   end
