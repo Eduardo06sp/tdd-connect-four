@@ -63,6 +63,8 @@ class ConnectFour
   end
 
   def play_rounds
+    return end_game if game_over?
+
     display_game
 
     puts "#{turn.name}, please make a move."
