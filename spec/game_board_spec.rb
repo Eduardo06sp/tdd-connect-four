@@ -13,19 +13,19 @@ describe GameBoard do
   end
 
   describe '@board' do
-    it 'contains key A1' do
+    it 'contains key a1' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?('A1')).to be(true)
+      expect(board.key?('a1')).to be(true)
     end
 
-    it 'contains key G6' do
+    it 'contains key g6' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?('G6')).to be(true)
+      expect(board.key?('g6')).to be(true)
     end
 
-    it 'does not contain key D7' do
+    it 'does not contain key d7' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?('D7')).to be(false)
+      expect(board.key?('d7')).to be(false)
     end
   end
 
@@ -35,20 +35,20 @@ describe GameBoard do
       expect(possibilities.count).to be(42)
     end
 
-    it 'contains string A1' do
+    it 'contains string a1' do
       possibilities = new_board.instance_variable_get(:@possibilities)
-      expect(possibilities.include?('A1')).to be(true)
+      expect(possibilities.include?('a1')).to be(true)
     end
   end
 
   describe '#update_board' do
-    context 'when player selects available space C1' do
-      it 'updates C1 with gamepiece' do
-        spot = 'C1'
+    context 'when player selects available space c1' do
+      it 'updates c1 with gamepiece' do
+        spot = 'c1'
         piece = '⚪'
         board = new_board.instance_variable_get(:@board)
         new_board.update_board(spot, piece)
-        expect(board['C1']).to eq('⚪')
+        expect(board['c1']).to eq('⚪')
       end
     end
   end
