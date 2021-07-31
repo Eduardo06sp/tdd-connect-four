@@ -31,7 +31,7 @@ class ConnectFour
 
     puts 'Invalid input! Please try again.'
     input = gets.chomp.upcase
-    validate_input(input, valid_entries)
+    input = validate_input(input, valid_entries)
   end
 
   def create_new_game
