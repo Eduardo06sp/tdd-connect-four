@@ -133,7 +133,14 @@ class ConnectFour
           visited.push(current_spot)
         end
 
-        return true if possible_wins.all? { |possibility| possibility == possible_wins[0] }
+        if possible_wins.all? { |possibility| possibility == possible_wins[0] }
+          self.winner = if v == '⚪' && player_one.symbol == '⚪'
+                          player_one.name
+                        else
+                          player_two.name
+                        end
+          return true
+        end
       end
 
       visited.push(k)
