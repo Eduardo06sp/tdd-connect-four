@@ -15,7 +15,7 @@ class ConnectFour
     @player_two = player_two
     @game_board = GameBoard.new
     @winner = nil
-    @turn = player_one.name
+    @turn = player_one
   end
 
   def start_game
@@ -73,10 +73,10 @@ class ConnectFour
   end
 
   def change_turn
-    self.turn = if turn == player_one.name
-                  player_two.name
+    self.turn = if turn == player_one
+                  player_two
                 else
-                  player_one.name
+                  player_one
                 end
   end
 
