@@ -73,6 +73,7 @@ class ConnectFour
     update_possible_moves(input)
 
     change_turn
+    play_rounds
   end
 
   def change_turn
