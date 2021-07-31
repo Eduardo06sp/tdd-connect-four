@@ -13,9 +13,9 @@ describe GameBoard do
   end
 
   describe '@board' do
-    xit 'contains key a1' do
+    it 'hash key 1 contains array with numbers 1-6' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?('a1')).to be(true)
+      expect(board['1']).to eq([1, 2, 3, 4, 5, 6])
     end
 
     xit 'contains key g6' do
