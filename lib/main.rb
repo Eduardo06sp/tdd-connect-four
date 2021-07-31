@@ -19,11 +19,11 @@ end
 p1_token = "#{input}_token"
 
 if p1_token == 'white_token'
-  p1_token = '⚪'
-  p2_token = '⚫'
+  p1_token = '★'
+  p2_token = '☆'
 else
-  p1_token = '⚫'
-  p2_token = '⚪'
+  p1_token = '☆'
+  p2_token = '★'
 end
 
 player_one = Player.new(p1_name, p1_token)
