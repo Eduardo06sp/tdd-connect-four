@@ -59,7 +59,8 @@ class ConnectFour
     player_one = Player.new(p1_name, p1_token)
     player_two = Player.new(p2_name, p2_token)
 
-    ConnectFour.new(player_one, player_two)
+    new_game = ConnectFour.new(player_one, player_two)
+    new_game.play_rounds
   end
 
   def play_rounds
