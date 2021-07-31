@@ -95,6 +95,10 @@ describe ConnectFour do
   end
 
   describe '#winner?' do
+    before do
+      allow(player_one).to receive(:symbol).and_return('⚪')
+    end
+
     it 'returns true if horizontal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
