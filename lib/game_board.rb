@@ -10,7 +10,7 @@ class GameBoard
 
   def create_board
     board = {}
-    x = ('A'..'G').to_a
+    x = ('a'..'g').to_a
 
     x.each do |letter|
       i = 1

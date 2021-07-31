@@ -100,7 +100,7 @@ class ConnectFour
   end
 
   def winner?
-    x_letters = %w[A B C D E F G]
+    x_letters = %w[a b c d e f g]
     visited = []
 
     game_board.board.each do |k, v|
