@@ -10,14 +10,10 @@ class GameBoard
 
   def create_board
     board = {}
-    x = ('a'..'g').to_a
+    x = ('1'..'7').to_a
 
-    x.each do |letter|
-      i = 1
-      until i == 7
-        board["#{letter}#{i}"] = ' '
-        i += 1
-      end
+    x.each do |number|
+      board["#{number}"] = (1..6).to_a
     end
 
     board
