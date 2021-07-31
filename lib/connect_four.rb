@@ -104,6 +104,12 @@ class ConnectFour
 
     input = gets.chomp
     input = validate_input(input, %w[y yes n no])
+
+    if %w[y yes].include?(input)
+      create_new_game
+    else
+      puts 'Have a wonderful day! :}'
+    end
   end
 
   def winner?
