@@ -71,6 +71,8 @@ class ConnectFour
 
     game_board.update_board(input, turn.symbol)
     update_possible_moves(input)
+
+    change_turn
   end
 
   def change_turn
