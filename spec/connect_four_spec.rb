@@ -199,6 +199,11 @@ describe ConnectFour do
     let(:player_two) { Player.new('Player 2', 'white_token') }
     subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
+    before do
+      allow(new_game).to receive(:display_game)
+      allow(new_game).to receive(:rematch)
+    end
+
     it 'congratulates player one if player one wins' do
       new_game.instance_variable_set(:@winner, player_one.name)
       winner = new_game.instance_variable_get(:@winner)
