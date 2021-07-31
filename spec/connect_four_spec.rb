@@ -90,7 +90,7 @@ describe ConnectFour do
     subject(:new_game) { ConnectFour.new(player_one, player_two) }
 
     it 'sets @turn to other player' do
-      expect { new_game.change_turn }.to change { new_game.instance_variable_get(:@turn) }.to('Player 2')
+      expect { new_game.change_turn }.to change { new_game.instance_variable_get(:@turn) }.to(player_two)
     end
   end
 
