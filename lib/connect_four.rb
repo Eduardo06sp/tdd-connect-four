@@ -65,7 +65,7 @@ class ConnectFour
   def play_rounds
     display_game
 
-    puts "#{turn}, please make a move."
+    puts "#{turn.name}, please make a move."
     input = gets.chomp
     input = validate_input(input, possible_moves)
 
