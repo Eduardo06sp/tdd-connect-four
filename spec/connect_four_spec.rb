@@ -71,19 +71,6 @@ describe ConnectFour do
     end
   end
 
-  describe '#create_new_game' do
-    let(:player_one) { instance_double(Player) }
-    let(:player_two) { instance_double(Player) }
-
-    it 'creates a new ConnectFour instance' do
-      allow(new_game).to receive(:puts).exactly(3).times
-      allow(new_game).to receive(:gets).and_return('').twice
-      allow(new_game).to receive(:gets).and_return('black')
-      expect(ConnectFour).to receive(:new)
-      new_game.create_new_game
-    end
-  end
-
   describe '#change_turn', :skip_before do
     let(:player_one) { Player.new('Player 1', 'black_token') }
     let(:player_two) { Player.new('Player 2', 'white_token') }
