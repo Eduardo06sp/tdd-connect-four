@@ -25,13 +25,13 @@ describe GameBoard do
   end
 
   describe '#update_board' do
-    context 'when player selects available space c1' do
-      xit 'updates c1 with gamepiece' do
-        spot = 'c1'
-        piece = '⚪'
+    context 'when player selects column 1' do
+      xit 'updates column 1 with gamepiece' do
+        column = '1'
+        piece = '★'
         board = new_board.instance_variable_get(:@board)
-        new_board.update_board(spot, piece)
-        expect(board['c1']).to eq('⚪')
+        new_board.update_board(column, piece)
+        expect(board['1']).to eq(['★', ' ', ' ', ' ', ' ', ' '])
       end
     end
   end
