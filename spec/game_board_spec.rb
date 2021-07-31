@@ -24,18 +24,6 @@ describe GameBoard do
     end
   end
 
-  describe '@possibilities' do
-    xit 'is an array with 42 elements' do
-      possibilities = new_board.instance_variable_get(:@possibilities)
-      expect(possibilities.count).to be(42)
-    end
-
-    xit 'contains string a1' do
-      possibilities = new_board.instance_variable_get(:@possibilities)
-      expect(possibilities.include?('a1')).to be(true)
-    end
-  end
-
   describe '#update_board' do
     context 'when player selects available space c1' do
       xit 'updates c1 with gamepiece' do
