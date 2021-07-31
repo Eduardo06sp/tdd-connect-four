@@ -30,6 +30,12 @@ module TerminalInterface
   end
 
   def display_players
+    puts <<~HEREDOC
+      ----------------------------------------
+                     #{player_one.name}: #{player_one.symbol}
+                     #{player_two.name}: #{player_two.symbol}
+      ----------------------------------------
+    HEREDOC
   end
 
   def display_game
