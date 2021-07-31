@@ -99,6 +99,9 @@ class ConnectFour
     end
   end
 
+  def rematch
+  end
+
   def winner?
     x_letters = %w[a b c d e f g]
     visited = []
