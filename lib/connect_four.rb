@@ -100,6 +100,10 @@ class ConnectFour
   end
 
   def rematch
+    puts 'Would you like to play again? Please type in y / yes / n / no.'
+
+    input = gets.chomp
+    input = validate_input(input, %w[y yes n no])
   end
 
   def winner?
