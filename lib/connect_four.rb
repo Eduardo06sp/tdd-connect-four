@@ -68,6 +68,8 @@ class ConnectFour
     puts "#{turn}, please make a move."
     input = gets.chomp
     input = validate_input(input, possible_moves)
+
+    game_board.update_board(input, turn)
   end
 
   def change_turn
