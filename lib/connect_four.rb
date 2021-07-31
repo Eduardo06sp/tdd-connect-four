@@ -189,5 +189,7 @@ class ConnectFour
     else
       puts 'Game over! Game ends in a tie.'
     end
+
+    rematch
   end
 end
