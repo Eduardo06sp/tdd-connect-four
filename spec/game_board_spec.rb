@@ -18,9 +18,9 @@ describe GameBoard do
       expect(board['1']).to eq([1, 2, 3, 4, 5, 6])
     end
 
-    xit 'does not contain key d7' do
+    it 'does not contain key 8' do
       board = new_board.instance_variable_get(:@board)
-      expect(board.key?('d7')).to be(false)
+      expect(board.key?('8')).to be(false)
     end
   end
 
