@@ -26,7 +26,7 @@ describe GameBoard do
 
   describe '#update_board' do
     context 'when player selects column 1' do
-      xit 'updates column 1 with gamepiece' do
+      it 'updates column 1 with gamepiece' do
         column = '1'
         piece = '★'
         board = new_board.instance_variable_get(:@board)
