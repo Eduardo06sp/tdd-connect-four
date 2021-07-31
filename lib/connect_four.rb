@@ -27,10 +27,10 @@ class ConnectFour
   end
 
   def validate_input(valid_input, valid_entries)
-    return valid_input if valid_entries.include?(valid_input)
+    return valid_input.upcase if valid_entries.include?(valid_input.upcase)
 
     puts 'Invalid input! Please try again.'
-    input = gets.chomp
+    input = gets.chomp.upcase
     validate_input(input, valid_entries)
   end
 
