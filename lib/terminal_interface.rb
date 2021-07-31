@@ -12,7 +12,7 @@ module TerminalInterface
   def display_board
     t = game_board.board
 
-    puts <<~HEREDOC
+    puts <<-HEREDOC
       6 |  #{t['A6']}  #{t['B6']}   #{t['C6']}  #{t['D6']}  #{t['E6']}  #{t['F6']}  #{t['G6']}  |
         |                        |
       5 |  #{t['A5']}  #{t['B5']}   #{t['C5']}  #{t['D5']}  #{t['E5']}  #{t['F5']}  #{t['G5']}  |
