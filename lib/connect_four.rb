@@ -70,6 +70,7 @@ class ConnectFour
     input = validate_input(input, possible_moves)
 
     game_board.update_board(input, turn.symbol)
+    update_possible_moves(input)
   end
 
   def change_turn
