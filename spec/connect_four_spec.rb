@@ -130,13 +130,13 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    xit 'returns false if no win is present' do
+    it 'returns false if no win is present' do
       board = new_game.instance_variable_get(:@game_board)
 
-      board.update_board('a1', '★')
-      board.update_board('b2', '★')
-      board.update_board('c3', '★')
-      board.update_board('d5', '★')
+      board.update_board('1', '★')
+      board.update_board('2', '★')
+      board.update_board('3', '★')
+      board.update_board('5', '★')
 
       expect(new_game.winner?).to be(false)
     end
