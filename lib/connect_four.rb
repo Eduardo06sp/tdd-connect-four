@@ -114,13 +114,11 @@ class ConnectFour
   end
 
   def winner?
-    x_letters = %w[a b c d e f g]
     visited = []
 
-    #                        |k      , v      |
     game_board.board.each do |x_value, y_array|
       y_array.each_with_index do |y_value, y_index|
-        next if y_value == ' ' || visited.each { |space| return true if space.equal?(y_value) }
+        next if y_value == ' ' || visited.any? { |space| space.equal?(y_value) }
 
         win_combinations = {
           'right_pieces': [
@@ -152,7 +150,7 @@ class ConnectFour
           possible_wins = [y_value]
 
           combination_array.each do |coordinate|
-            break if board[coordinate[0].to_s].nil? || coordinate[1] > 6
+            break if game_board.board[coordinate[0].to_s].nil? || coordinate[1] > 6
 
             current_spot = game_board.board[coordinate[0].to_s][coordinate[1]]
             possible_wins.push(current_spot)
@@ -160,7 +158,7 @@ class ConnectFour
           end
 
           if possible_wins.all? { |possibility| possibility == possible_wins[0] } && possible_wins.length == 4
-            self.winner = if v == '★' && player_one.symbol == '★'
+            self.winner = if y_value == '★' && player_one.symbol == '★'
                             player_one.name
                           else
                             player_two.name
