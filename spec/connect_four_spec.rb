@@ -179,6 +179,15 @@ describe ConnectFour do
       new_game.update_possible_moves(column)
       expect(possible_moves).to eq(%w[2 3 4 5 6])
     end
+
+    it 'does nothing if column 6 is still available' do
+      column = '6'
+      board = new_game.instance_variable_get(:@game_board)
+      possible_moves = new_game.instance_variable_get(:@possible_moves)
+
+      new_game.update_possible_moves(column)
+      expect(possible_moves).to eq(%w[1 2 3 4 5 6])
+    end
   end
 
   describe '#end_game' do
