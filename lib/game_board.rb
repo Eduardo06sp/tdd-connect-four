@@ -18,7 +18,12 @@ class GameBoard
     board
   end
 
-  def update_board(location, gamepiece)
-    board[location] = gamepiece
+  def update_board(column, gamepiece)
+    board[column].each_with_index do |row, i|
+      if row == ' '
+        board[column][i] = gamepiece
+        break
+      end
+    end
   end
 end
