@@ -3,6 +3,8 @@
 # TerminalInterface stores the methods used to display the game in the terminal
 # It is broken into three methods to separate the title, board itself and player names
 module TerminalInterface
+  private
+
   def display_title
     puts <<~HEREDOC
       ----------------------------------------
