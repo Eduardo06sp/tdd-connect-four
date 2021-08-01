@@ -120,32 +120,7 @@ class ConnectFour
       y_array.each_with_index do |y_value, y_index|
         next if y_value == ' '
 
-        win_combinations = {
-          'right_pieces': [
-            [x_value.to_i + 1, y_index],
-            [x_value.to_i + 2, y_index],
-            [x_value.to_i + 3, y_index]
-          ],
-
-          'backwards_diagonal_pieces': [
-            [x_value.to_i - 1, y_index + 1],
-            [x_value.to_i - 2, y_index + 2],
-            [x_value.to_i - 3, y_index + 3]
-          ],
-
-          'vertical_pieces': [
-            [x_value.to_i, y_index + 1],
-            [x_value.to_i, y_index + 2],
-            [x_value.to_i, y_index + 3]
-          ],
-
-          'forwards_diagonal_pieces': [
-            [x_value.to_i + 1, y_index + 1],
-            [x_value.to_i + 2, y_index + 2],
-            [x_value.to_i + 3, y_index + 3]
-          ]
-        }
-
+        win_combinations = generate_win_combinations(x_value, y_index)
         win_combinations.each do |_name, combination_array|
           possible_wins = [y_value]
 
@@ -172,6 +147,34 @@ class ConnectFour
     end
 
     false
+  end
+
+  def generate_win_combinations(x, y)
+    {
+      'right_pieces': [
+        [x.to_i + 1, y],
+        [x.to_i + 2, y],
+        [x.to_i + 3, y]
+      ],
+
+      'backwards_diagonal_pieces': [
+        [x.to_i - 1, y + 1],
+        [x.to_i - 2, y + 2],
+        [x.to_i - 3, y + 3]
+      ],
+
+      'vertical_pieces': [
+        [x.to_i, y + 1],
+        [x.to_i, y + 2],
+        [x.to_i, y + 3]
+      ],
+
+      'forwards_diagonal_pieces': [
+        [x.to_i + 1, y + 1],
+        [x.to_i + 2, y + 2],
+        [x.to_i + 3, y + 3]
+      ]
+    }
   end
 
   def game_over?
