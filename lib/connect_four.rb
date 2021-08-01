@@ -37,37 +37,6 @@ class ConnectFour
     validate_input(input, valid_entries)
   end
 
-  def create_new_game
-    p1_name = get_player_name('one')
-    p2_name = get_player_name('two')
-
-    p1_token = get_player_symbol(p1_name)
-    p2_token = p1_token == '★' ? '☆' : '★'
-
-    player_one = Player.new(p1_name, p1_token)
-    player_two = Player.new(p2_name, p2_token)
-
-    new_game = ConnectFour.new(player_one, player_two)
-    new_game.play_rounds
-  end
-
-  def get_player_name(id)
-    puts "Please enter a name for player #{id}, or press enter to use the default:"
-    input = gets.chomp
-
-    id_to_number = id == 'one' ? '1' : '2'
-    input == '' ? "Player #{id_to_number}" : input
-  end
-
-  def get_player_symbol(name)
-    puts "#{name}, please choose the color of your gamepiece: black or white"
-    input = gets.chomp
-    validated_input = validate_input(input, %w[black white])
-    player_token = "#{validated_input}_token"
-
-    player_token == 'white_token' ? '★' : '☆'
-  end
-
   def play_rounds
     return end_game if game_over?
 
@@ -94,19 +63,6 @@ class ConnectFour
 
   def update_possible_moves(column)
     possible_moves.delete(column) if game_board.board[column].none? { |row| row == ' ' }
-  end
-
-  def rematch
-    puts 'Would you like to play again? Please type in y / yes / n / no.'
-
-    input = gets.chomp
-    input = validate_input(input, %w[y yes n no])
-
-    if %w[y yes].include?(input)
-      create_new_game
-    else
-      puts 'Have a wonderful day! :}'
-    end
   end
 
   def winner?
@@ -145,6 +101,55 @@ class ConnectFour
     false
   end
 
+  def game_over?
+    possible_moves.empty? || winner?
+  end
+
+  def end_game
+    display_game
+
+    if winner?
+      puts "Congratulations, #{winner}, you win!"
+    else
+      puts 'Game over! Game ends in a tie.'
+    end
+
+    rematch
+  end
+
+  private
+
+  def create_new_game
+    p1_name = get_player_name('one')
+    p2_name = get_player_name('two')
+
+    p1_token = get_player_symbol(p1_name)
+    p2_token = p1_token == '★' ? '☆' : '★'
+
+    player_one = Player.new(p1_name, p1_token)
+    player_two = Player.new(p2_name, p2_token)
+
+    new_game = ConnectFour.new(player_one, player_two)
+    new_game.play_rounds
+  end
+
+  def get_player_name(id)
+    puts "Please enter a name for player #{id}, or press enter to use the default:"
+    input = gets.chomp
+
+    id_to_number = id == 'one' ? '1' : '2'
+    input == '' ? "Player #{id_to_number}" : input
+  end
+
+  def get_player_symbol(name)
+    puts "#{name}, please choose the color of your gamepiece: black or white"
+    input = gets.chomp
+    validated_input = validate_input(input, %w[black white])
+    player_token = "#{validated_input}_token"
+
+    player_token == 'white_token' ? '★' : '☆'
+  end
+
   def generate_win_combinations(x, y)
     {
       'right_pieces': [
@@ -177,19 +182,16 @@ class ConnectFour
     game_pieces.all? { |game_piece| game_piece == game_pieces[0] } && game_pieces.length == 4
   end
 
-  def game_over?
-    possible_moves.empty? || winner?
-  end
+  def rematch
+    puts 'Would you like to play again? Please type in y / yes / n / no.'
 
-  def end_game
-    display_game
+    input = gets.chomp
+    input = validate_input(input, %w[y yes n no])
 
-    if winner?
-      puts "Congratulations, #{winner}, you win!"
+    if %w[y yes].include?(input)
+      create_new_game
     else
-      puts 'Game over! Game ends in a tie.'
+      puts 'Have a wonderful day! :}'
     end
-
-    rematch
   end
 end
