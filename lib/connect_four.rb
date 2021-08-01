@@ -10,7 +10,7 @@ class ConnectFour
   attr_reader :game_board, :player_one, :player_two
 
   def initialize(player_one, player_two)
-    @possible_moves = %w[a1 b1 c1 d1 e1 f1 g1]
+    @possible_moves = [1, 2, 3, 4, 5, 6]
     @player_one = player_one
     @player_two = player_two
     @game_board = GameBoard.new
