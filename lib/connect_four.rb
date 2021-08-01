@@ -117,59 +117,60 @@ class ConnectFour
     x_letters = %w[a b c d e f g]
     visited = []
 
-    game_board.board.each do |k, v|
-      next if v == ' ' || visited.include?(k)
+    #                        |k      , v      |
+    game_board.board.each do |x_value, y_array|
+      y_array.each_with_index do |y_value, y_index|
+        next if y_value == ' ' || visited.each { |space| return true if space.equal?(y_value) }
 
-      letter_index = x_letters.index(k[0])
+        win_combinations = {
+          'right_pieces': [
+            [x_value.to_i + 1, y_index],
+            [x_value.to_i + 2, y_index],
+            [x_value.to_i + 3, y_index]
+          ],
 
-      win_combinations = {
-        'right_pieces': [
-          [letter_index + 1, k[1]],
-          [letter_index + 2, k[1]],
-          [letter_index + 3, k[1]]
-        ],
+          'backwards_diagonal_pieces': [
+            [x_value.to_i - 1, y_index + 1],
+            [x_value.to_i - 2, y_index + 2],
+            [x_value.to_i - 3, y_index + 3]
+          ],
 
-        'backwards_diagonal_pieces': [
-          [letter_index - 1, k[1].to_i + 1],
-          [letter_index - 2, k[1].to_i + 2],
-          [letter_index - 3, k[1].to_i + 3]
-        ],
+          'vertical_pieces': [
+            [x_value.to_i, y_index + 1],
+            [x_value.to_i, y_index + 2],
+            [x_value.to_i, y_index + 3]
+          ],
 
-        'vertical_pieces': [
-          [letter_index, k[1].to_i + 1],
-          [letter_index, k[1].to_i + 2],
-          [letter_index, k[1].to_i + 3]
-        ],
+          'forwards_diagonal_pieces': [
+            [x_value.to_i + 1, y_index + 1],
+            [x_value.to_i + 2, y_index + 2],
+            [x_value.to_i + 3, y_index + 3]
+          ]
+        }
 
-        'forwards_diagonal_pieces': [
-          [letter_index + 1, k[1].to_i + 1],
-          [letter_index + 2, k[1].to_i + 2],
-          [letter_index + 3, k[1].to_i + 3]
-        ]
-      }
+        win_combinations.each do |_name, combination_array|
+          possible_wins = [y_value]
 
-      win_combinations.each do |_name, pieces_array|
-        possible_wins = [v]
+          combination_array.each do |coordinate|
+            break if board[coordinate[0].to_s].nil? || coordinate[1] > 6
 
-        pieces_array.each do |coordinate|
-          break if x_letters[coordinate[0]].nil?
+            current_spot = game_board.board[coordinate[0].to_s][coordinate[1]]
+            possible_wins.push(current_spot)
+            visited.push(current_spot)
+          end
 
-          current_spot = game_board.board["#{x_letters[coordinate[0]]}#{coordinate[1]}"]
-          possible_wins.push(current_spot)
-          visited.push(current_spot)
+          if possible_wins.all? { |possibility| possibility == possible_wins[0] } && possible_wins.length == 4
+            self.winner = if v == '★' && player_one.symbol == '★'
+                            player_one.name
+                          else
+                            player_two.name
+                          end
+            return true
+          end
         end
 
-        if possible_wins.all? { |possibility| possibility == possible_wins[0] } && possible_wins.length == 4
-          self.winner = if v == '★' && player_one.symbol == '★'
-                          player_one.name
-                        else
-                          player_two.name
-                        end
-          return true
-        end
+        visited.push(y_value)
       end
-
-      visited.push(k)
     end
 
     false
