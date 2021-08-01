@@ -97,13 +97,21 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    xit 'returns true if backwards diagonal win present' do
+    it 'returns true if backwards diagonal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
-      board.update_board('a4', '★')
-      board.update_board('b3', '★')
-      board.update_board('c2', '★')
-      board.update_board('d1', '★')
+      2.times do
+        board.update_board('1', '☆')
+        board.update_board('1', '★')
+      end
+
+      board.update_board('2', '☆')
+      board.update_board('2', '★')
+      board.update_board('2', '★')
+
+      board.update_board('3', '★')
+      board.update_board('3', '★')
+      board.update_board('4', '★')
 
       expect(new_game.winner?).to be(true)
     end
@@ -119,13 +127,21 @@ describe ConnectFour do
       expect(new_game.winner?).to be(true)
     end
 
-    xit 'returns true if forwards diagonal win present' do
+    it 'returns true if forwards diagonal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
-      board.update_board('a1', '★')
-      board.update_board('b2', '★')
-      board.update_board('c3', '★')
-      board.update_board('d4', '★')
+      2.times do
+        board.update_board('4', '☆')
+        board.update_board('4', '★')
+      end
+
+      board.update_board('3', '☆')
+      board.update_board('3', '★')
+      board.update_board('3', '★')
+
+      board.update_board('2', '★')
+      board.update_board('2', '★')
+      board.update_board('1', '★')
 
       expect(new_game.winner?).to be(true)
     end
