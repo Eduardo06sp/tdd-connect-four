@@ -168,14 +168,15 @@ describe ConnectFour do
 
   describe '#update_possible_moves' do
     it 'deletes 1 from possible moves when full' do
+      column = '1'
       board = new_game.instance_variable_get(:@game_board)
       possible_moves = new_game.instance_variable_get(:@possible_moves)
 
       6.times do
-        board.update_board('1', '★')
+        board.update_board(column, '★')
       end
 
-      new_game.update_possible_moves
+      new_game.update_possible_moves(column)
       expect(possible_moves).to eq(%w[2 3 4 5 6])
     end
 
