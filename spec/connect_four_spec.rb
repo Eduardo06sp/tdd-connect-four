@@ -179,24 +179,6 @@ describe ConnectFour do
       new_game.update_possible_moves(column)
       expect(possible_moves).to eq(%w[2 3 4 5 6])
     end
-
-    xit 'updates g3 to g4 when last move is g3' do
-      new_game.instance_variable_set(:@possible_moves, %w[a1 b1 c1 d1 e1 f1 g3])
-      possible_moves = new_game.instance_variable_get(:@possible_moves)
-      last_move = 'g3'
-
-      new_game.update_possible_moves(last_move)
-      expect(possible_moves).to eq(%w[a1 b1 c1 d1 e1 f1 g4])
-    end
-
-    xit 'removes element if last move is g7' do
-      new_game.instance_variable_set(:@possible_moves, %w[a1 b1 c1 d1 e1 f1 g7])
-      possible_moves = new_game.instance_variable_get(:@possible_moves)
-      last_move = 'g7'
-
-      new_game.update_possible_moves(last_move)
-      expect(possible_moves).to eq(%w[a1 b1 c1 d1 e1 f1])
-    end
   end
 
   describe '#end_game' do
