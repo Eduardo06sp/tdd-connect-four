@@ -3,6 +3,13 @@
 require_relative 'game_board'
 require_relative 'terminal_interface'
 
+# ConnectFour contains the core methods required to run the game
+# New Player, GameBoard and ConnectFour instances are created
+# Game state is tracked through instance variables containing:
+# the game board (and its spaces), the players, and possible moves
+#
+# The winner is tracked, initializing with nil, representing a tie if the game ends
+# The first player starts and turns are alternated in #change_turn
 class ConnectFour
   include TerminalInterface
 
