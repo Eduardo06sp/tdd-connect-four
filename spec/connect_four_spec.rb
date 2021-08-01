@@ -167,12 +167,16 @@ describe ConnectFour do
   end
 
   describe '#update_possible_moves' do
-    xit 'updates a1 to a2 when gamepiece fills a1' do
+    it 'deletes 1 from possible moves when full' do
+      board = new_game.instance_variable_get(:@game_board)
       possible_moves = new_game.instance_variable_get(:@possible_moves)
-      last_move = 'a1'
 
-      new_game.update_possible_moves(last_move)
-      expect(possible_moves).to eq(%w[a2 b1 c1 d1 e1 f1 g1])
+      6.times do
+        board.update_board('1', '★')
+      end
+
+      new_game.update_possible_moves
+      expect(possible_moves).to eq(%w[2 3 4 5 6])
     end
 
     xit 'updates g3 to g4 when last move is g3' do
