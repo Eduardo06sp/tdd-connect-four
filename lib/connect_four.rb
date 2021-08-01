@@ -42,13 +42,8 @@ class ConnectFour
   end
 
   def create_new_game
-    puts 'Please enter a name for player one, or press enter to use the default:'
-    input = gets.chomp
-    p1_name = input == '' ? 'Player 1' : input
-
-    puts 'Please enter a name for player two, or press enter to use the default:'
-    input = gets.chomp
-    p2_name = input == '' ? 'Player 2' : input
+    p1_name = get_player_name('one')
+    p2_name = get_player_name('two')
 
     puts "#{p1_name}, please choose the color of your gamepiece: black or white"
     input = gets.chomp
@@ -68,6 +63,14 @@ class ConnectFour
 
     new_game = ConnectFour.new(player_one, player_two)
     new_game.play_rounds
+  end
+
+  def get_player_name(id)
+    puts "Please enter a name for player #{id}, or press enter to use the default:"
+    input = gets.chomp
+
+    id_to_number = id == 'one' ? '1' : '2'
+    input == '' ? "Player #{id_to_number}" : input
   end
 
   def play_rounds
