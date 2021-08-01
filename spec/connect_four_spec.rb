@@ -89,10 +89,10 @@ describe ConnectFour do
     it 'returns true if horizontal win present' do
       board = new_game.instance_variable_get(:@game_board)
 
-      board.update_board('a1', '★')
-      board.update_board('b1', '★')
-      board.update_board('c1', '★')
-      board.update_board('d1', '★')
+      board.update_board('1', '★')
+      board.update_board('2', '★')
+      board.update_board('3', '★')
+      board.update_board('4', '★')
 
       expect(new_game.winner?).to be(true)
     end
