@@ -88,11 +88,7 @@ class ConnectFour
   end
 
   def update_possible_moves(column)
-    game_board.board[column].each do |row|
-      break if row == ' '
-
-      possible_moves.delete(column)
-    end
+    possible_moves.delete(column) if game_board.board[column].none? { |row| row == ' ' }
   end
 
   def rematch
