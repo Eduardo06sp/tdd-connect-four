@@ -12,7 +12,7 @@ class GameBoard
     x = ('1'..'7').to_a
 
     x.each do |number|
-      board[number.to_s] = Array.new(6) { ' ' }
+      board[number] = Array.new(6) { ' ' }
     end
 
     board
