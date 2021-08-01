@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# GameBoard initializes with a hash containing keys 1-7 (as string)
+# Each key contains an empty space represented by a string
+# Depending on the chosen column, the next empty space is replaced by a gamepiece
 class GameBoard
   attr_reader :board
 
