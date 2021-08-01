@@ -172,9 +172,6 @@ describe ConnectFour do
     end
   end
 
-  describe '#make_next_move' do
-  end
-
   describe '#update_possible_moves' do
     it 'deletes 1 from possible moves when full' do
       column = '1'
