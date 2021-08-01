@@ -132,7 +132,7 @@ class ConnectFour
             visited.push(current_spot)
           end
 
-          if possible_wins.all? { |possibility| possibility == possible_wins[0] } && possible_wins.length == 4
+          if four_in_a_row?(possible_wins)
             self.winner = if y_value == '★' && player_one.symbol == '★'
                             player_one.name
                           else
@@ -175,6 +175,10 @@ class ConnectFour
         [x.to_i + 3, y + 3]
       ]
     }
+  end
+
+  def four_in_a_row?(game_pieces)
+    game_pieces.all? { |game_piece| game_piece == game_pieces[0] } && game_pieces.length == 4
   end
 
   def game_over?
