@@ -25,10 +25,6 @@ class ConnectFour
     @turn = player_one
   end
 
-  def start_game
-    puts 'Welcome to CLI Connect Four! Please press enter to continue...'
-  end
-
   def create_player(name, symbol)
     Player.new(name, symbol)
   end
