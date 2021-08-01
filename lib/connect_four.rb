@@ -109,7 +109,7 @@ class ConnectFour
 
     game_board.board.each do |x_value, y_array|
       y_array.each_with_index do |y_value, y_index|
-        next if y_value == ' ' || visited.any? { |space| space.equal?(y_value) }
+        next if y_value == ' '
 
         win_combinations = {
           'right_pieces': [
