@@ -45,18 +45,8 @@ class ConnectFour
     p1_name = get_player_name('one')
     p2_name = get_player_name('two')
 
-    puts "#{p1_name}, please choose the color of your gamepiece: black or white"
-    input = gets.chomp
-    validated_input = validate_input(input, %w[black white])
-    p1_token = "#{validated_input}_token"
-
-    if p1_token == 'white_token'
-      p1_token = '★'
-      p2_token = '☆'
-    else
-      p1_token = '☆'
-      p2_token = '★'
-    end
+    p1_token = get_player_symbol(p1_name)
+    p2_token = p1_token == '★' ? '☆' : '★'
 
     player_one = Player.new(p1_name, p1_token)
     player_two = Player.new(p2_name, p2_token)
@@ -71,6 +61,15 @@ class ConnectFour
 
     id_to_number = id == 'one' ? '1' : '2'
     input == '' ? "Player #{id_to_number}" : input
+  end
+
+  def get_player_symbol(name)
+    puts "#{name}, please choose the color of your gamepiece: black or white"
+    input = gets.chomp
+    validated_input = validate_input(input, %w[black white])
+    player_token = "#{validated_input}_token"
+
+    player_token == 'white_token' ? '★' : '☆'
   end
 
   def play_rounds
